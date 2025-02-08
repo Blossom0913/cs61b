@@ -61,7 +61,7 @@ public class Planet {
      */
     public double calcForceExertedByX(Planet planet) {
       double force = calcForceExertedBy(planet);
-      double dis_x = Math.abs(this.xxPos - planet.xxPos);
+      double dis_x = this.xxPos - planet.xxPos;
       double dis = calcDistance(planet);
 
       return (force * dis_x) / dis;
@@ -74,7 +74,7 @@ public class Planet {
      */
     public double calcForceExertedByY(Planet planet) {
       double force = calcForceExertedBy(planet);
-      double dis_y = Math.abs(this.yyPos - planet.yyPos);
+      double dis_y = this.yyPos - planet.yyPos;
       double dis = calcDistance(planet);
 
       return (force * dis_y) / dis;
