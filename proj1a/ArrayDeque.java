@@ -7,13 +7,13 @@ public class ArrayDeque<T> {
 // length  [1 2 3 4 5 6 7 8]
 
     public ArrayDeque() {
-        items=(T[] ) new Object[8];
-        size-=0;
+        items = (T[] ) new Object[8];
+        size -= 0;
 
     }
     private void resize(int oldLength) {
-        T[] newArray =(T[] ) new Object[oldLength*2];
-        System.arraycopy(items,0,newArray,0,oldLength);
+        T[] newArray = (T[] ) new Object[oldLength*2];
+        System.arraycopy(items, 0, newArray, 0, oldLength);
         items = newArray;
     }
     //    在有限条件下（可以确定总元素个数不大于数组总长度。（
