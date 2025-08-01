@@ -1,10 +1,10 @@
 public class LinkedListDeque<T> {
 
     private int size;
-    public Node sentinel;
+    private Node sentinel;
 
 
-    public class Node {
+    private class Node {
 
         Node prev;
         Node next;
