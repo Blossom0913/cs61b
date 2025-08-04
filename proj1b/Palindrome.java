@@ -1,4 +1,4 @@
-class Palindrome {
+public class Palindrome {
     public Deque<Character> wordToDeque(String word) {
         LinkedListDeque<Character> deque = new LinkedListDeque<>();
         for(int i = 0;i < word.length();i += 1) {
@@ -15,16 +15,16 @@ class Palindrome {
     }
 
     private boolean recursivePalindrome(Deque d) {
-        if(d.size() <= 1){
+        if(d.size() <= 1) {
             return true;
         }
-        else{
+        else {
             char a = (char)d.removeFirst();
             char b = (char)d.removeLast();
-            if(a == b){
+            if(a == b) {
                 return recursivePalindrome(d);
             }
-            else{
+            else {
                 return false;
             }
         }
