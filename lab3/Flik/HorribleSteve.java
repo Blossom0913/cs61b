@@ -1,11 +1,11 @@
 public class HorribleSteve {
-    public static void main(String [] args) {
-        int i = 0;
-        for (int j = 0; i < 500; ++i, ++j) {
-            if (!Flik.isSameNumber(i, j)) {
-                break; // break exits the for loop!
+    public static void main(String[] args) {
+        for (int i = 0; i < 500; i++) {
+            Integer a = i;
+            Integer b = i;
+            if (!Flik.isSameNumber(a, b)) {
+                System.out.println("i = " + i + " is not the same as b = " + b + "??");
             }
         }
-        System.out.println("i is " + i);
     }
 }
