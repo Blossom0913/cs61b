@@ -10,7 +10,7 @@ public class TestArrayDequeGold {
     public void testStudentArrayDeque() {
         StudentArrayDeque<Integer> studentArrayDeque = new StudentArrayDeque<>();
         ArrayDequeSolution<Integer> arrayDequeSolution = new ArrayDequeSolution<>();
-        ArrayList<String> callTrace = new ArrayList<String>();
+        ArrayList<String> callTrace = new ArrayList<String>(); // function call stack
         for (int i = 0; i < 10; i += 1) {
             double numberOne = StdRandom.uniform();
             double numberZero = StdRandom.uniform();
