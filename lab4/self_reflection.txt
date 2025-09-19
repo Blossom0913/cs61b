@@ -4,19 +4,19 @@ ArrayDeque:
 
 Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
 
-A: 
+A: maybe i should make use of dummy head
 
 Q: What's something you felt proud of in your code, if anything?
 
-A:
+A: more simplified and readable
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
-A:
+A: largely using AI Agent Code
 
 Q: What did you learn by talking to your partner about writing ArrayDeque?
 
-A:
+A: 
 
 Q: What do you wish you would have known before writing ArrayDeque, if anything?
 
@@ -60,4 +60,4 @@ Meta:
 
 Q: Did you like this design review process? Anything we should do differently next time?
 
-A: 
+A: Having Fun! I made great progress in coding. 
