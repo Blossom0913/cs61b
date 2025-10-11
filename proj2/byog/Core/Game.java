@@ -2,6 +2,7 @@ package byog.Core;
 
 import byog.TileEngine.TERenderer;
 import byog.TileEngine.TETile;
+import byog.TileEngine.Tileset;
 
 public class Game {
     TERenderer ter = new TERenderer();
@@ -28,11 +29,48 @@ public class Game {
      * @return the 2D TETile[][] representing the state of the world
      */
     public TETile[][] playWithInputString(String input) {
-        // TODO: Fill out this method to run the game using the input passed in,
-        // and return a 2D tile representation of the world that would have been
-        // drawn if the same inputs had been given to playWithKeyboard().
+        if (input == null) {
+            throw new IllegalArgumentException("Input string cannot be null.");
+        }
 
-        TETile[][] finalWorldFrame = null;
-        return finalWorldFrame;
+        String cleanedInput = input.trim().toLowerCase();
+        if (cleanedInput.isEmpty()) {
+            return buildEmptyWorld();
+        }
+
+        char firstCommand = cleanedInput.charAt(0);
+        switch (firstCommand) {
+            case 'n':
+                return handleNewGame(cleanedInput);
+            default:
+                throw new IllegalArgumentException("Unsupported command sequence: " + input);
+        }
+    }
+
+    private TETile[][] buildEmptyWorld() {
+        TETile[][] emptyWorld = new TETile[WIDTH][HEIGHT];
+        for (int x = 0; x < WIDTH; x += 1) {
+            for (int y = 0; y < HEIGHT; y += 1) {
+                emptyWorld[x][y] = Tileset.NOTHING;
+            }
+        }
+        return emptyWorld;
+    }
+
+    private TETile[][] handleNewGame(String input) {
+        int terminatorIndex = input.indexOf('s', 1);
+        if (terminatorIndex < 0) {
+            throw new IllegalArgumentException("Seed for new game must be terminated with 'S'.");
+        }
+
+        String seedSection = input.substring(1, terminatorIndex);
+        if (seedSection.isEmpty()) {
+            throw new IllegalArgumentException("Seed cannot be empty.");
+        }
+
+        long seed = Long.parseLong(seedSection);
+        WorldGenerator generator = new WorldGenerator(WIDTH, HEIGHT, seed);
+        TETile[][] generatedWorld = generator.generate();
+        return TETile.copyOf(generatedWorld);
     }
 }
